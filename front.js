@@ -23,7 +23,7 @@ function getResults(query) {
 
     let newUrl = `${url}?q=${query}&APPID=${api_key}&units=${unit}`;
 
-    //console.log(newUrl);
+    console.log(newUrl);
 
     fetch(newUrl)
         .then(response => {
@@ -46,12 +46,14 @@ function displayResults(data) {
         <img src="${icon}" alt="${data.weather[0]["description"]} class="icon">
         <h3>Look For Places to Visit in This Weather</h3>
         <button class="take-me-there" id="taker">👉TAKE ME THERE</button>
+        <h4 id="longitude">${data.coord.lon}</h4>
+        <h4 id="latitude">${data.coord.lat}</h4>
         </div>
     `;
 	document.getElementById("taker").addEventListener("click", function() {
-        var latx;
-        var laty; //x and y for location, to be obtained from openweather api
-        var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&radius=1500&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
+        var latx = parseInt(document.getElementById("latitude").innerHTML);
+        var laty = parseInt(document.getElementById("longitude").innerHTML);
+        var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&radius=10000&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
         console.log(list);
 
     })
