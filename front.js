@@ -46,13 +46,11 @@ function displayResults(data) {
         <img src="${icon}" alt="${data.weather[0]["description"]} class="icon">
         <h3>Look For Places to Visit in This Weather</h3>
         <button class="take-me-there" id="taker">👉TAKE ME THERE</button>
-        <h4 id="longitude">${data.coord.lon}</h4>
-        <h4 id="latitude">${data.coord.lat}</h4>
         </div>
     `;
+    latx = data.coord.lat;
+    laty = data.coord.lon;
 	document.getElementById("taker").addEventListener("click", function() {
-        var latx = parseInt(document.getElementById("latitude").innerHTML);
-        var laty = parseInt(document.getElementById("longitude").innerHTML);
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&radius=10000&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
         console.log(list);
