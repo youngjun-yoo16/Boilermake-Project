@@ -41,6 +41,8 @@ body {
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;
+    width: 350px;
+    height:250px;
 }
 
 /* heading */
@@ -56,7 +58,7 @@ body {
 
 /* search box */
 .search-form{
-    max-width: 60%;
+    max-width: 80%;
     margin: 3% auto;
     position: relative;
     display: flex;
@@ -74,7 +76,7 @@ body {
 }
 
 .search-form button{
-    width: 40%;
+    width: 60%;
   border: 1px solid #982fad;
   background: #982fad;
   text-align: center;

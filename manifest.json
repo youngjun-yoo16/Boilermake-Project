@@ -1,12 +1,15 @@
 {
   "manifest_version": 2,
   
-  "name": "Temporary Web Extension",
-  "description": "Doesn't do anything yet.",
+  "name": "4Cast Weather Extension",
+  "description": "Choose a location and we'll recommend places and activities!",
   "version": "1.0",
-  
+  "icons": { 
+	  "16": "secondIcon16.png",
+	  "32": "newIcon32.png",
+          "128": "newIcon128.png" },
   "browser_action": {
-    "default_icon": "icon.jpg",
+    "default_icon": "newIcon128.png",
     "default_popup": "front.html"
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.rawgit.com https://cdnjs.cloudflare.com; object-src 'self'",
