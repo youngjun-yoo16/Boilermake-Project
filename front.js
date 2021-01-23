@@ -76,8 +76,6 @@ function displayResults(data) {
     `;
         }
     })
-
-    })
     if (data.weather[0].main === "Rain") {
         body.style.backgroundImage = "url('https://images.unsplash.com/photo-1486016006115-74a41448aea2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80')";
         console.log("Rain image  deployed.")
