@@ -45,10 +45,16 @@ function displayResults(data) {
 		<h1>${Math.round(data.main.temp)}°</h1>
         <img src="${icon}" alt="${data.weather[0]["description"]} class="icon">
         <h3>Look For Places to Visit in This Weather</h3>
-        <button class="take-me-there">👉TAKE ME THERE</button>
+        <button class="take-me-there" id="taker">👉TAKE ME THERE</button>
         </div>
     `;
+	document.getElementById("taker").addEventListener("click", function() {
+        var latx;
+        var laty; //x and y for location, to be obtained from openweather api
+        var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&radius=1500&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
+        console.log(list);
 
+    })
     if (data.weather[0].main === "Rain") {
         body.style.backgroundImage = "url('https://images.unsplash.com/photo-1486016006115-74a41448aea2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80')";
         console.log("Rain image  deployed.")
