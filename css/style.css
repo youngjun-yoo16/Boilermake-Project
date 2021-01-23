@@ -38,6 +38,9 @@ button{
 body {
     background:#0a1f44;
     font-family: 'Poppins', sans-serif;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 /* heading */
@@ -99,7 +102,7 @@ body {
     padding: 5px 30px;
     max-width: 350px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, .2);
     -webkit-animation: open 2s cubic-bezier(.39, 0, .38, 1);
@@ -153,4 +156,15 @@ body {
   border-radius: 30px;
   color: #fff;
   background: #ff8c00;
+}
+
+.card .take-me-there{
+    margin-bottom: 2%;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #fff;
+    padding: 2% 4%;
+    border: 1.5px solid #ff8c00;
+    border-radius: 15px;
+    background-color: #E7CB16;
 }
