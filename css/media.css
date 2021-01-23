@@ -1,0 +1,8 @@
+@media (max-width:414px){
+    :root{
+        --width:250px;
+    }
+    .heading{
+        font-size: 3rem;
+    }
+}
