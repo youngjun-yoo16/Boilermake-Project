@@ -53,8 +53,29 @@ function displayResults(data) {
 	document.getElementById("taker").addEventListener("click", function() {
         var latx = parseInt(document.getElementById("latitude").innerHTML);
         var laty = parseInt(document.getElementById("longitude").innerHTML);
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
         var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&radius=10000&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
         console.log(list);
+        fetch(proxyurl + list)
+            .then(response => {
+                return response.json();
+            })
+            .then(showCities)
+            .catch(err => {
+                console.log(err);
+            });
+        function showCities(data) {
+            var length = data.results.length;
+            console.log(length);
+            for(var i = 0; i < length; i++) {
+                console.log(data.results[i].name);
+            }
+            container.innerHTML = `<div class="card">
+         <h2>${data.results.length} Nearby Places Found.</h2>
+        </div>
+    `;
+        }
+    })
 
     })
     if (data.weather[0].main === "Rain") {
