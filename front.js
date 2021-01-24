@@ -52,7 +52,7 @@ function displayResults(data) {
     laty = data.coord.lon;
 	document.getElementById("taker").addEventListener("click", function() {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&radius=10000&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
+        var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&rankby=distance&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
         console.log(list);
         fetch(proxyurl + list)
             .then(response => {
