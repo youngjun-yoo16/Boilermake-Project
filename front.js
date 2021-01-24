@@ -58,13 +58,13 @@ function displayResults(data) {
         var subs = "Right now, you may want to visit: ";
         if(temp>35) {
             desc = "It's Quite Hot Outside!";
-            filters = "bowling_alley,bar,night_club,casino,aquarium,movie_theater,spa,shopping_mall";
-        } else if(20<=temp &&temp<=35) {
+            filters = "bowling_alley,bar, night_club, casino, aquarium, movie_theater, spa,shopping_mall";
+        } else if(20<=temp && temp<=35) {
             desc = "Beautiful Temperatures!";
-            filters = "amusement_park,campground,park,zoo";
-        } else if(0<=temp &&temp<20) {
+            filters = "clothing_store, amusement_park, campground,park, zoo";
+        } else if(0<=temp && temp<20) {
             desc = "Nice, Cool Weather!";
-            filters = "cafe,library|aquarium|movie_theater|shopping_mall";
+            filters = "mosque, cafe, library, aquarium, movie_theater, shopping_mall, bakery";
         } else {
             desc = "Wow, it's Cold!";
             subs = "Right now, you may want to stay home and order: ";
