@@ -171,3 +171,22 @@ body {
     border-radius: 15px;
     background-color: #E7CB16;
 }
+
+/* places */
+.places{
+    width: 100%;
+    padding: 2% 2%;
+}
+
+.places .place-name{
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #982fad;
+}
+
+.places .place-icon{
+    display: inline block;
+    height: 20px;
+    width: 20px;
+}
