@@ -50,9 +50,27 @@ function displayResults(data) {
     `;
     latx = data.coord.lat;
     laty = data.coord.lon;
+    temp = data.main.temp;
 	document.getElementById("taker").addEventListener("click", function() {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&rankby=distance&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
+        var filters;
+        var desc;
+        var subs = "Right now, you may want to visit: ";
+        if(temp>35) {
+            desc = "It's Quite Hot Outside!";
+            filters = "bowling_alley,bar,night_club,casino,aquarium,movie_theater,spa,shopping_mall";
+        } else if(20<=temp &&temp<=35) {
+            desc = "Beautiful Temperatures!";
+            filters = "amusement_park,campground,park,zoo";
+        } else if(0<=temp &&temp<20) {
+            desc = "Nice, Cool Weather!";
+            filters = "cafe,library|aquarium|movie_theater|shopping_mall";
+        } else {
+            desc = "Wow, it's Cold!";
+            subs = "Right now, you may want to stay home and order: ";
+            filters="movie_rental,meal_delivery,meal_takeaway";
+        }
+        var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&type=${filters}&rankby=distance&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
         console.log(list);
         fetch(proxyurl + list)
             .then(response => {
@@ -65,7 +83,8 @@ function displayResults(data) {
         function showCities(data) {
             var length = data.results.length;
             container.innerHTML = `<div class="card">
-         <h2>${data.results.length} Nearby Places Found.</h2>
+         <h2>${desc}</h2>
+         <h3>${subs}</h3>
     `;
             console.log(length);
             for(var i = 0; i < length; i++) {
