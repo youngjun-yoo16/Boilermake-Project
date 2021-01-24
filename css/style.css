@@ -41,25 +41,23 @@ body {
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;
-    width: 350px;
-    height:250px;
+    background-attachment: fixed;
 }
 
 /* heading */
 .heading {
     color: #982fad;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 3rem;
     letter-spacing: 0.02em;
-    padding: 30px 30px 30px 30px;
     margin: 2% auto;
     text-align: center;
 }
 
 /* search box */
 .search-form{
-    max-width: 80%;
-    margin: 3% auto;
+    max-width: 60%;
+    margin: 2% auto;
     position: relative;
     display: flex;
 }
@@ -68,7 +66,7 @@ body {
     width: 100%;
   border: 3px solid #982fad;
   border-right: none;
-  padding: 2%;
+  padding: 1.5%;
   /* height: 1.2rem; */
   border-radius: 8px 0 0 8px;
   outline: none;
@@ -100,7 +98,7 @@ body {
 /* weather Card */
 .card {
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 4%;
     padding: 5px 30px;
     max-width: 350px;
     height: auto;
