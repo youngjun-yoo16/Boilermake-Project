@@ -64,14 +64,16 @@ function displayResults(data) {
             });
         function showCities(data) {
             var length = data.results.length;
+            container.innerHTML = `<div class="card">
+         <h2>${data.results.length} Nearby Places Found.</h2>
+    `;
             console.log(length);
             for(var i = 0; i < length; i++) {
                 console.log(data.results[i].name);
+                container.appendChild(document.createTextNode(data.results[i].name));
+                container.appendChild(document.createElement("br"));
             }
-            container.innerHTML = `<div class="card">
-         <h2>${data.results.length} Nearby Places Found.</h2>
-        </div>
-    `;
+
         }
     })
     if (data.weather[0].main === "Rain") {
