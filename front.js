@@ -90,11 +90,15 @@ function displayResults(data) {
 
             console.log(length);
 
+            let e = [];
             for (var i = 0; i < length; i++) {
                 console.log(data.results[i].name);
 
-                wrapper.innerHTML = `<div class="places"><p class="place-name">${data.results[i].name}</p><img src="${data.results[i].icon}" class="place-icon"></div>`;
+                let div = `<div class="places"><p class="place-name">${data.results[i].name}</p><img src="${data.results[i].icon}" class="place-icon"></div>`;
+
+                e.push(div);
             }
+            wrapper.innerHTML = e;
 
         }
     })
