@@ -8,6 +8,7 @@ const url = 'https://api.openweathermap.org/data/2.5/weather';
 const form = document.querySelector('.search-form');
 const input = document.querySelector('input');
 const container = document.querySelector('.container');
+const wrapper = document.querySelector('.wrapper');
 const body = document.querySelector('body');
 
 form.addEventListener('submit', e => {
@@ -16,6 +17,7 @@ form.addEventListener('submit', e => {
     let inputVal = input.value;
 
     //console.log(inputVal);
+    wrapper.innerHTML = "";
     getResults(inputVal);
 })
 
@@ -51,24 +53,24 @@ function displayResults(data) {
     latx = data.coord.lat;
     laty = data.coord.lon;
     temp = data.main.temp;
-	document.getElementById("taker").addEventListener("click", function() {
+    document.getElementById("taker").addEventListener("click", function () {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         var filters;
         var desc;
         var subs = "Right now, you may want to visit: ";
-        if(temp>35) {
+        if (temp > 35) {
             desc = "It's Quite Hot Outside!";
             filters = "bowling_alley,bar, night_club, casino, aquarium, movie_theater, spa,shopping_mall";
-        } else if(20<=temp && temp<=35) {
+        } else if (20 <= temp && temp <= 35) {
             desc = "Beautiful Temperatures!";
             filters = "clothing_store, amusement_park, campground,park, zoo";
-        } else if(0<=temp && temp<20) {
+        } else if (0 <= temp && temp < 20) {
             desc = "Nice, Cool Weather!";
             filters = "mosque, cafe, library, aquarium, movie_theater, shopping_mall, bakery";
         } else {
             desc = "Wow, it's Cold!";
             subs = "Right now, you may want to stay home and order: ";
-            filters="movie_rental,meal_delivery,meal_takeaway";
+            filters = "movie_rental,meal_delivery,meal_takeaway";
         }
         var list = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latx},${laty}&type=${filters}&rankby=distance&key=AIzaSyD1ffbPD0qcHdcKqwJCgeliy8j7miJ3uzE`;
         console.log(list);
@@ -84,13 +86,14 @@ function displayResults(data) {
             var length = data.results.length;
             container.innerHTML = `<div class="card">
          <h2>${desc}</h2>
-         <h3>${subs}</h3>
-    `;
+         <h3 style="color:#fff;">${subs}</h3> </div>`;
+
             console.log(length);
-            for(var i = 0; i < length; i++) {
+
+            for (var i = 0; i < length; i++) {
                 console.log(data.results[i].name);
-                container.appendChild(document.createTextNode(data.results[i].name));
-                container.appendChild(document.createElement("br"));
+
+                wrapper.innerHTML = `<div class="places"><p class="place-name">${data.results[i].name}</p><img src="${data.results[i].icon}" class="place-icon"></div>`;
             }
 
         }
